@@ -1,0 +1,21 @@
+{
+  "name": "sdk-example-app",
+  "version": "0.0.1",
+  "description": "Simple example app for Retsly SDKs.",
+  "main": "server.js",
+  "scripts": {
+    "build": "make build",
+  },
+  "author": "Retsly <support@rets.ly>",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "jquery": "^2.1.4",
+    "js-sdk": "github:retsly/js-sdk#updateRequests",
+    "path": "^0.12.7",
+    "retsly-js-sdk": "github:retsly/retsly-js-sdk"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.2"
+  }
+}
