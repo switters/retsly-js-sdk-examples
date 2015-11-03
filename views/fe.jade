@@ -5,9 +5,8 @@ html
   body
     h1 #{context}
 
-    pre.prettyprint#response
+    pre#response
 
-    script(src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js")
     if scripts
       - each s in scripts
         script(src=s)

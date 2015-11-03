@@ -4,18 +4,16 @@
   "description": "Simple example app for Retsly SDKs.",
   "main": "server.js",
   "scripts": {
-    "build": "make build",
+    "build": "make build"
   },
   "author": "Retsly <support@rets.ly>",
   "dependencies": {
+    "browserify": "12.0.1",
     "express": "^4.13.3",
     "jade": "^1.11.0",
     "jquery": "^2.1.4",
-    "js-sdk": "github:retsly/js-sdk#updateRequests",
+    "js-sdk": "github:retsly/js-sdk",
     "path": "^0.12.7",
     "retsly-js-sdk": "github:retsly/retsly-js-sdk"
-  },
-  "devDependencies": {
-    "webpack": "^1.12.2"
   }
 }

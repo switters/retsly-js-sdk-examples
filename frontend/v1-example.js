@@ -20,4 +20,4 @@ function request () {
     var el = document.getElementById('response');
     el.innerHTML = response;
   });
-});
+};

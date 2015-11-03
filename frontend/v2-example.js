@@ -15,13 +15,14 @@ function request () {
   // make a request to retsly
   retsly
     .listings()
-    .bedrooms(3)
+    .where('bedrooms', 3)
     .limit(9)
     .getAll(function (err, res) {
-      var response = JSON.stringify(JSON.parse(err || res.text), null, 4);
+      var text = (err) ? err : res.text;
+      var response = JSON.stringify(JSON.parse(text), null, 4);
 
       // Assign response to the DOM
-      var el = document.getElementById('response')
+      var el = document.getElementById('response');
       el.innerHTML = response;
     });
-});
+};

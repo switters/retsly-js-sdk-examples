@@ -4,11 +4,13 @@
 var express = require('express');
 var join = require('path').join;
 var app = express();
+var cwd = process.cwd();
 
 // configure the server
 app
-  .set('views', join(process.cwd(), 'views'))
-  .set('view engine', 'jade');
+  .set('views', join(cwd, 'views'))
+  .set('view engine', 'jade')
+  .use(express.static(join(cwd, 'public')));
 
 /**
  * Spin up Retsly SDK (v2)
@@ -35,11 +37,12 @@ app.get('/v2-backend', function (req, res) {
   var retsly = Retsly.create(<<<server_token>>>, ['test']);
   retsly
     .listings()
-    .query({ bedrooms: 3, limit: 9 })
     .getAll(function (err, response) {
-      if (response) response = JSON.stringify(JSON.parse(response.text), null, 4);
+      var resp;
+      if (err) resp = err.response.text;
+      else if (response) resp = JSON.stringify(JSON.parse(response.text), null, 4);
 
-      return res.render('be', {response: response});
+      return res.render('v2-be', {response: resp});
     });
 });
 
@@ -54,7 +57,7 @@ app.get('/v2-frontend', function (req, res) {
 /**
  * Listening closely...
  */
-var listeningPort = 3000;
+var listeningPort = 3003;
 app.listen(listeningPort, function () {
   console.log('Listening on port:', listeningPort);
 });
